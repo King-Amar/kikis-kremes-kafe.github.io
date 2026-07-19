@@ -4,45 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Kikis Kremes Kafe</title>
+    <title>Kikis Kremes Kafe Menu</title>
 </head>
 <body class="bg-gray-100 min-h-screen p-4 md:p-8">
-    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden p-6">
-        
-        <!-- Header -->
+    <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
         <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-800">KIKIS KREMES KAFE</h1>
+            <h1 class="text-3xl font-bold text-gray-800">Kikis Kremes Kafe</h1>
             <p class="text-gray-600">Links Road, Nyali, Mombasa</p>
         </div>
 
-        <!-- Operating Hours -->
-        <div class="bg-gray-50 p-4 rounded-lg mb-8">
-            <h2 class="font-bold text-lg mb-2">Operating Hours</h2>
-            <div class="space-y-1 text-sm">
-                <div class="flex justify-between"><span>Sunday:</span> <span>8 am – 11 pm</span></div>
-                <div class="flex justify-between"><span>Monday:</span> <span>8 am – 10 pm</span></div>
-                <div class="flex justify-between"><span>Tuesday:</span> <span>8 am – 10 pm</span></div>
-                <div class="flex justify-between"><span>Wednesday:</span> <span>8 am – 10 pm</span></div>
-                <div class="flex justify-between"><span>Thursday:</span> <span>8 am – 10 pm</span></div>
-                <div class="flex justify-between"><span>Friday:</span> <span>8 am – 11 pm</span></div>
-                <div class="flex justify-between"><span>Saturday:</span> <span>8 am – 11 pm</span></div>
-            </div>
+        <div class="space-y-3">
+            <!-- Template for creating a section -->
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Starters 🥗
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Bajia (V)</span> <span>Ksh 150</span></div>
+                    <div class="flex justify-between"><span>Viazi (V)</span> <span>Ksh 150</span></div>
+                    <div class="flex justify-between"><span>Samousa Beef</span> <span>Ksh 300</span></div>
+                    <div class="flex justify-between"><span>Kebabs</span> <span>Ksh 300</span></div>
+                    <div class="flex justify-between"><span>Wings 5pcs (BBQ, Peri Peri, Honey)</span> <span>Ksh 500</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Soups 🥣
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Tomato Soup (V)</span> <span>Ksh 500</span></div>
+                    <div class="flex justify-between"><span>Creamy Mushroom (V)</span> <span>Ksh 500</span></div>
+                    <div class="flex justify-between"><span>Chicken Soup</span> <span>Ksh 500</span></div>
+                    <div class="flex justify-between"><span>Mandi Soup</span> <span>Ksh 300</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Salads 🥗
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Chicken Caesar Salad</span> <span>Ksh 700</span></div>
+                    <div class="flex justify-between"><span>Greek Salad</span> <span>Ksh 650</span></div>
+                    <div class="flex justify-between"><span>Tuna Pasta Salad</span> <span>Ksh 650</span></div>
+                    <div class="flex justify-between"><span>Crunchy Potato Salad</span> <span>Ksh 550</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Patisserie 🥐
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Plain Croissant</span> <span>Ksh 300</span></div>
+                    <div class="flex justify-between"><span>Chocolate Croissant</span> <span>Ksh 350</span></div>
+                    <div class="flex justify-between"><span>Almond Croissant</span> <span>Ksh 350</span></div>
+                    <div class="flex justify-between"><span>Vegetable Pie (V)</span> <span>Ksh 300</span></div>
+                    <div class="flex justify-between"><span>Meat Pie / Chicken Pie</span> <span>Ksh 350</span></div>
+                    <div class="flex justify-between"><span>Icecroist</span> <span>Ksh 600</span></div>
+                    <div class="flex justify-between"><span>Kunaissant</span> <span>Ksh 800</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Breakfast 🍳
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>English Breakfast</span> <span>Ksh 1,000</span></div>
+                    <div class="flex justify-between"><span>Shakshuka</span> <span>Ksh 600</span></div>
+                    <div class="flex justify-between"><span>Eggstravaganza</span> <span>Ksh 600</span></div>
+                    <div class="flex justify-between"><span>Beans On Toast</span> <span>Ksh 500</span></div>
+                    <div class="flex justify-between"><span>Avotoast</span> <span>Ksh 550</span></div>
+                    <div class="flex justify-between"><span>French Toast</span> <span>Ksh 550</span></div>
+                    <div class="flex justify-between"><span>Club Macon Sandwich</span> <span>Ksh 700</span></div>
+                    <div class="flex justify-between"><span>Spanish Omelette</span> <span>Ksh 600</span></div>
+                    <div class="flex justify-between"><span>Omelette Delight</span> <span>Ksh 700</span></div>
+                    <div class="flex justify-between"><span>Kremes Waffle</span> <span>Ksh 750</span></div>
+                    <div class="flex justify-between"><span>Protein Bliss</span> <span>Ksh 950</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Rice Meals 🍚
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Biryani (Mutton/Chicken)</span> <span>Ksh 550</span></div>
+                    <div class="flex justify-between"><span>Pilau (Mutton/Chicken)</span> <span>Ksh 450</span></div>
+                    <div class="flex justify-between"><span>Mandi (Mutton/Chicken)</span> <span>Ksh 550</span></div>
+                    <div class="flex justify-between"><span>Zurbian (Mutton/Chicken)</span> <span>Ksh 550</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Curry 🍛
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Vegetable Curry</span> <span>Ksh 700</span></div>
+                    <div class="flex justify-between"><span>Chicken/Beef/Mutton Curry</span> <span>Ksh 800</span></div>
+                    <div class="flex justify-between"><span>Butter Chicken Curry</span> <span>Ksh 800</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Pasta 🍝
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Lasagna (Chicken/Beef)</span> <span>Ksh 1,100</span></div>
+                    <div class="flex justify-between"><span>Pasta Stir-Fry</span> <span>Ksh 850</span></div>
+                    <div class="flex justify-between"><span>Pasta Bolognese</span> <span>Ksh 900</span></div>
+                    <div class="flex justify-between"><span>Creamy Chicken Pasta</span> <span>Ksh 950</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Pizza 🍕
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Margarita</span> <span>Ksh 800</span></div>
+                    <div class="flex justify-between"><span>Vegetarian / Funghi</span> <span>Ksh 950</span></div>
+                    <div class="flex justify-between"><span>Hawaiian / Peri Peri / BBQ Chicken</span> <span>Ksh 1,100</span></div>
+                    <div class="flex justify-between"><span>Tamara Special</span> <span>Ksh 1,300</span></div>
+                </div>
+            </details>
+
+            <details class="group bg-gray-50 rounded-lg p-4 border border-gray-200">
+                <summary class="font-bold text-lg cursor-pointer flex justify-between items-center outline-none">
+                    Burgers & Paninis 🍔
+                    <span class="group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <div class="mt-4 space-y-2 text-sm border-t pt-2">
+                    <div class="flex justify-between"><span>Beef/Chicken Burger</span> <span>Ksh 800</span></div>
+                    <div class="flex justify-between"><span>Kremes/Mo's Peri Burger</span> <span>Ksh 900</span></div>
+                    <div class="flex justify-between"><span>Veg Burger</span> <span>Ksh 700</span></div>
+                    <div class="flex justify-between"><span>Fillet Steak/Chicken/Tuna Panini</span> <span>Ksh 800-850</span></div>
+                </div>
+            </details>
+            
+            <!-- Additional categories would follow this same pattern -->
         </div>
 
-        <!-- Menu Section -->
-        <div class="space-y-6">
-            <h2 class="text-xl font-bold flex items-center">☕ Coffee</h2>
-            <div class="space-y-2">
-                <div class="flex justify-between border-b pb-1"><span>Espresso</span> <span>Ksh 200</span></div>
-                <div class="flex justify-between border-b pb-1"><span>Cappuccino</span> <span>Ksh 250</span></div>
-                <div class="flex justify-between border-b pb-1"><span>Caffe Latte</span> <span>Ksh 250</span></div>
-            </div>
-        </div>
-
-        <!-- WhatsApp Button -->
-        <div class="mt-8">
-            <a href="https://wa.me/yournumber" class="block w-full bg-green-600 text-white text-center py-3 rounded-lg font-bold hover:bg-green-700 transition">
-                Order via WhatsApp 📱
+        <div class="mt-10">
+            <a href="#" class="block w-full bg-black text-white text-center py-4 rounded-lg font-bold hover:opacity-90 transition">
+                Order via WhatsApp
             </a>
         </div>
     </div>
