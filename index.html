@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kikis Kremes Kafe | Nyali, Mombasa</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        .bg-cafe { background-color: #fcf8f2; }
+        .text-chocolate { color: #3d2b1f; }
+        .bg-chocolate { background-color: #3d2b1f; }
+    </style>
+</head>
+<body class="bg-cafe text-chocolate font-sans antialiased">
+
+    <!-- Header -->
+    <header class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center border-b border-stone-200">
+        <div class="text-xl font-bold tracking-wider uppercase">Kikis Kremes Kafe</div>
+        <a href="tel:+254742888111" class="bg-chocolate text-white px-4 py-2 rounded-full text-sm font-semibold">
+            Call Delivery
+        </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-6xl mx-auto px-4 py-12 text-center md:text-left grid md:grid-cols-2 gap-8 items-center">
+        <div>
+            <span class="text-amber-700 font-semibold tracking-wide uppercase text-sm">Nyali's Favorite Cafe</span>
+            <h1 class="text-4xl font-extrabold tracking-tight mt-2 mb-4">Good Food & Specialty Drinks</h1>
+            <p class="text-stone-600 mb-8">Experience the perfect ambience right in Mombasa. View our menu below and order directly via WhatsApp.</p>
+            <div class="flex flex-col gap-4">
+                <a href="#menu-section" class="bg-chocolate text-white text-center px-6 py-3 rounded-lg font-medium">Browse Live Menu 👇</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section id="menu-section" class="max-w-2xl mx-auto px-4 py-12 border-t border-stone-200">
+        <h2 class="text-2xl font-bold text-center mb-2">Our Menu</h2>
+        <p class="text-center text-sm text-stone-500 mb-8">Tap a category to view items</p>
+        
+        <div class="space-y-4">
+            <!-- Category 1: Coffee -->
+            <div class="bg-white rounded-xl shadow-xs overflow-hidden">
+                <button onclick="toggleMenu('coffee-list')" class="w-full p-5 text-left font-bold flex justify-between items-center border-b border-stone-100">
+                    <span>☕ Specialty Coffee</span>
+                    <span class="text-stone-400">▼</span>
+                </button>
+                <div id="coffee-list" class="hidden p-5 bg-stone-50 space-y-3">
+                    <div class="flex justify-between border-b border-dashed border-stone-200 pb-2">
+                        <div>
+                            <p class="font-semibold">Espresso</p>
+                            <p class="text-xs text-stone-500">Rich and intense single shot</p>
+                        </div>
+                        <span class="font-bold text-amber-800">Ksh 250</span>
+                    </div>
+                    <div class="flex justify-between border-b border-dashed border-stone-200 pb-2">
+                        <div>
+                            <p class="font-semibold">Cafe Latte</p>
+                            <p class="text-xs text-stone-500">Espresso with steamed milk</p>
+                        </div>
+                        <span class="font-bold text-amber-800">Ksh 350</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p class="font-semibold">Cappuccino</p>
+                            <p class="text-xs text-stone-500">Balanced espresso, milk, and foam</p>
+                        </div>
+                        <span class="font-bold text-amber-800">Ksh 350</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Desserts -->
+            <div class="bg-white rounded-xl shadow-xs overflow-hidden">
+                <button onclick="toggleMenu('dessert-list')" class="w-full p-5 text-left font-bold flex justify-between items-center border-b border-stone-100">
+                    <span>🍰 Desserts & Pastries</span>
+                    <span class="text-stone-400">▼</span>
+                </button>
+                <div id="dessert-list" class="hidden p-5 bg-stone-50 space-y-3">
+                    <div class="flex justify-between border-b border-dashed border-stone-200 pb-2">
+                        <div>
+                            <p class="font-semibold">Chocolate Fudge Cake</p>
+                            <p class="text-xs text-stone-500">Decadent triple layer chocolate</p>
+                        </div>
+                        <span class="font-bold text-amber-800">Ksh 450</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <div>
+                            <p class="font-semibold">Classic Waffles</p>
+                            <p class="text-xs text-stone-500">Served with ice cream and syrup</p>
+                        </div>
+                        <span class="font-bold text-amber-800">Ksh 550</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / WhatsApp Order -->
+    <footer class="bg-chocolate text-white mt-12">
+        <div class="max-w-6xl mx-auto px-4 py-12 text-center">
+            <h3 class="text-xl font-bold mb-2">Ready to Order?</h3>
+            <p class="text-stone-300 mb-6">Order directly via WhatsApp and skip app commissions.</p>
+            <a href="https://wa.me/254742888111?text=Hi%20Kikis%20Kremes%20Kafe,%20I'd%20like%20to%20order." class="bg-emerald-600 block sm:inline-block text-white px-8 py-3 rounded-full font-bold shadow-md">
+                Order via WhatsApp
+            </a>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript Engine to Make the Buttons Drop Down -->
+    <script>
+        function toggleMenu(id) {
+            const menu = document.getElementById(id);
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>
