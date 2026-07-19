@@ -9,20 +9,27 @@
 <body class="bg-gray-100 min-h-screen p-4 md:p-8">
     <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
         
-        <!-- NEW HERO SECTION -->
+        <!-- HERO SECTION -->
         <header class="text-left mb-10">
             <h2 class="text-orange-600 font-bold uppercase tracking-wider text-sm">Nyali's Favorite Cafe</h2>
             <h1 class="text-4xl font-bold text-gray-900 mt-2 mb-4">Good Food, Desserts & Specialty Drinks</h1>
             <p class="text-gray-600 mb-6">Experience the perfect ambience, premium coffee, and delicious meals right in the heart of Mombasa. Open daily for breakfast, lunch, and sweet cravings.</p>
             <div class="flex gap-4">
-                <a href="#menu" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'}); return false;" class="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-black transition">Explore Menu</a>
+                <!-- Updated Button for mobile reliability -->
+                <button 
+                    onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});" 
+                    class="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-black transition cursor-pointer"
+                >
+                    Explore Menu
+                </button>
                 <a href="https://maps.google.com" class="border border-gray-300 px-6 py-2 rounded-lg font-medium hover:bg-gray-50 transition">Find Us on Links Road</a>
             </div>
         </header>
 
-        <!-- Menu Anchor -->
-        <div id="menu" class="space-y-3">
-            <!-- (Your accordion menu sections go here) -->
+        <!-- Menu Anchor with minimum height to ensure it is scrollable -->
+        <div id="menu" class="space-y-3 min-h-[500px]">
+            <h2 class="text-2xl font-bold mb-4">Our Menu</h2>
+            <!-- (Your accordion menu sections will go here) -->
         </div>
 
         <!-- Footer / Contact -->
