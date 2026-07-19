@@ -15,7 +15,6 @@
             <h1 class="text-4xl font-bold text-gray-900 mt-2 mb-4">Good Food, Desserts & Specialty Drinks</h1>
             <p class="text-gray-600 mb-6">Experience the perfect ambience, premium coffee, and delicious meals right in the heart of Mombasa. Open daily for breakfast, lunch, and sweet cravings.</p>
             <div class="flex gap-4">
-                <!-- Updated Button for mobile reliability -->
                 <button 
                     onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});" 
                     class="bg-gray-800 text-white px-6 py-2 rounded-lg font-medium hover:bg-black transition cursor-pointer"
@@ -26,10 +25,36 @@
             </div>
         </header>
 
-        <!-- Menu Anchor with minimum height to ensure it is scrollable -->
-        <div id="menu" class="space-y-3 min-h-[500px]">
-            <h2 class="text-2xl font-bold mb-4">Our Menu</h2>
-            <!-- (Your accordion menu sections will go here) -->
+        <!-- MENU SECTION -->
+        <div id="menu" class="space-y-4">
+            <h2 class="text-2xl font-bold mb-6">Our Menu</h2>
+            
+            <!-- Accordion Item 1 -->
+            <details class="group bg-gray-50 rounded-lg p-4 transition-all">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-lg">
+                    <span>Breakfast & Brunch</span>
+                    <span class="transition group-open:rotate-180">▼</span>
+                </summary>
+                <p class="text-gray-600 mt-3 pl-2">Selection of fluffy pancakes, classic eggs, and fresh morning pastries.</p>
+            </details>
+
+            <!-- Accordion Item 2 -->
+            <details class="group bg-gray-50 rounded-lg p-4 transition-all">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-lg">
+                    <span>Specialty Drinks</span>
+                    <span class="transition group-open:rotate-180">▼</span>
+                </summary>
+                <p class="text-gray-600 mt-3 pl-2">Premium coffees, cold brews, and signature smoothies.</p>
+            </details>
+
+            <!-- Accordion Item 3 -->
+            <details class="group bg-gray-50 rounded-lg p-4 transition-all">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none text-lg">
+                    <span>Desserts</span>
+                    <span class="transition group-open:rotate-180">▼</span>
+                </summary>
+                <p class="text-gray-600 mt-3 pl-2">Signature cremes, cakes, and artisanal treats.</p>
+            </details>
         </div>
 
         <!-- Footer / Contact -->
