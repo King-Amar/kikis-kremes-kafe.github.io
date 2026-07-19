@@ -3,121 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kikis Kremes Kafe | Nyali, Mombasa</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        .bg-cafe { background-color: #fcf8f2; }
-        .text-chocolate { color: #3d2b1f; }
-        .bg-chocolate { background-color: #3d2b1f; }
-    </style>
+    <title>Kikis Kremes Kafe | Menu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-cafe text-chocolate font-sans antialiased">
+<body class="bg-gray-50 text-gray-900">
 
     <!-- Header -->
-    <header class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center border-b border-stone-200">
-        <div class="text-xl font-bold tracking-wider uppercase">Kikis Kremes Kafe</div>
-        <a href="tel:+254742888111" class="bg-chocolate text-white px-4 py-2 rounded-full text-sm font-semibold">
-            Call Delivery
-        </a>
+    <header class="bg-white p-6 shadow-sm text-center">
+        <h1 class="text-2xl font-bold">KIKIS KREMES KAFE</h1>
+        <p class="text-sm text-gray-600">Links Road, Nyali, Mombasa</p>
     </header>
 
-    <!-- Hero Section -->
-    <section class="max-w-6xl mx-auto px-4 py-12 text-center md:text-left grid md:grid-cols-2 gap-8 items-center">
-        <div>
-            <span class="text-amber-700 font-semibold tracking-wide uppercase text-sm">Nyali's Favorite Cafe</span>
-            <h1 class="text-4xl font-extrabold tracking-tight mt-2 mb-4">Good Food & Specialty Drinks</h1>
-            <p class="text-stone-600 mb-8">Experience the perfect ambience right in Mombasa. View our menu below and order directly via WhatsApp.</p>
-            <div class="flex flex-col gap-4">
-                <a href="#menu-section" class="bg-chocolate text-white text-center px-6 py-3 rounded-lg font-medium">Browse Live Menu 👇</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Menu Section -->
-    <section id="menu-section" class="max-w-2xl mx-auto px-4 py-12 border-t border-stone-200">
-        <h2 class="text-2xl font-bold text-center mb-2">Our Menu</h2>
-        <p class="text-center text-sm text-stone-500 mb-8">Tap a category to view items</p>
+    <!-- Main Content -->
+    <main class="max-w-md mx-auto p-4 space-y-6">
         
-        <div class="space-y-4">
-            <!-- Category 1: Coffee -->
-            <div class="bg-white rounded-xl shadow-xs overflow-hidden">
-                <button onclick="toggleMenu('coffee-list')" class="w-full p-5 text-left font-bold flex justify-between items-center border-b border-stone-100">
-                    <span>☕ Specialty Coffee</span>
-                    <span class="text-stone-400">▼</span>
-                </button>
-                <div id="coffee-list" class="hidden p-5 bg-stone-50 space-y-3">
-                    <div class="flex justify-between border-b border-dashed border-stone-200 pb-2">
-                        <div>
-                            <p class="font-semibold">Espresso</p>
-                            <p class="text-xs text-stone-500">Rich and intense single shot</p>
-                        </div>
-                        <span class="font-bold text-amber-800">Ksh 250</span>
-                    </div>
-                    <div class="flex justify-between border-b border-dashed border-stone-200 pb-2">
-                        <div>
-                            <p class="font-semibold">Cafe Latte</p>
-                            <p class="text-xs text-stone-500">Espresso with steamed milk</p>
-                        </div>
-                        <span class="font-bold text-amber-800">Ksh 350</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <p class="font-semibold">Cappuccino</p>
-                            <p class="text-xs text-stone-500">Balanced espresso, milk, and foam</p>
-                        </div>
-                        <span class="font-bold text-amber-800">Ksh 350</span>
-                    </div>
-                </div>
+        <!-- Operating Hours -->
+        <section class="bg-white p-4 rounded-lg shadow-sm">
+            <h2 class="text-lg font-bold mb-2">Operating Hours</h2>
+            <div class="text-sm space-y-1">
+                <div class="flex justify-between"><span>Sunday:</span><span>8 am – 11 pm</span></div>
+                <div class="flex justify-between"><span>Monday:</span><span>8 am – 10 pm</span></div>
+                <div class="flex justify-between"><span>Tuesday:</span><span>8 am – 10 pm</span></div>
+                <div class="flex justify-between"><span>Wednesday:</span><span>8 am – 10 pm</span></div>
+                <div class="flex justify-between"><span>Thursday:</span><span>8 am – 10 pm</span></div>
+                <div class="flex justify-between"><span>Friday:</span><span>8 am – 11 pm</span></div>
+                <div class="flex justify-between"><span>Saturday:</span><span>8 am – 11 pm</span></div>
             </div>
+        </section>
 
-            <!-- Category 2: Desserts -->
-            <div class="bg-white rounded-xl shadow-xs overflow-hidden">
-                <button onclick="toggleMenu('dessert-list')" class="w-full p-5 text-left font-bold flex justify-between items-center border-b border-stone-100">
-                    <span>🍰 Desserts & Pastries</span>
-                    <span class="text-stone-400">▼</span>
-                </button>
-                <div id="dessert-list" class="hidden p-5 bg-stone-50 space-y-3">
-                    <div class="flex justify-between border-b border-dashed border-stone-200 pb-2">
-                        <div>
-                            <p class="font-semibold">Chocolate Fudge Cake</p>
-                            <p class="text-xs text-stone-500">Decadent triple layer chocolate</p>
-                        </div>
-                        <span class="font-bold text-amber-800">Ksh 450</span>
-                    </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <p class="font-semibold">Classic Waffles</p>
-                            <p class="text-xs text-stone-500">Served with ice cream and syrup</p>
-                        </div>
-                        <span class="font-bold text-amber-800">Ksh 550</span>
-                    </div>
-                </div>
+        <!-- Menu Section -->
+        <section>
+            <h2 class="text-xl font-semibold mb-3 border-b pb-2">☕ Coffee</h2>
+            <div class="space-y-2">
+                <div class="flex justify-between"><span>Espresso</span><span>Ksh 200</span></div>
+                <div class="flex justify-between"><span>Cappuccino</span><span>Ksh 250</span></div>
+                <div class="flex justify-between"><span>Caffe Latte</span><span>Ksh 250</span></div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer / WhatsApp Order -->
-    <footer class="bg-chocolate text-white mt-12">
-        <div class="max-w-6xl mx-auto px-4 py-12 text-center">
-            <h3 class="text-xl font-bold mb-2">Ready to Order?</h3>
-            <p class="text-stone-300 mb-6">Order directly via WhatsApp and skip app commissions.</p>
-            <a href="https://wa.me/254742888111?text=Hi%20Kikis%20Kremes%20Kafe,%20I'd%20like%20to%20order." class="bg-emerald-600 block sm:inline-block text-white px-8 py-3 rounded-full font-bold shadow-md">
-                Order via WhatsApp
-            </a>
-        </div>
-    </footer>
+        <section>
+            <h2 class="text-xl font-semibold mb-3 border-b pb-2">🍔 Burgers</h2>
+            <div class="space-y-2">
+                <div class="flex justify-between"><span>Beef Burger</span><span>Ksh 800</span></div>
+                <div class="flex justify-between"><span>Chicken Burger</span><span>Ksh 800</span></div>
+                <div class="flex justify-between"><span>Kremes Burger</span><span>Ksh 900</span></div>
+            </div>
+        </section>
+        
+    </main>
 
-    <!-- Simple JavaScript Engine to Make the Buttons Drop Down -->
-    <script>
-        function toggleMenu(id) {
-            const menu = document.getElementById(id);
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-            } else {
-                menu.classList.add('hidden');
-            }
-        }
-    </script>
+    <!-- WhatsApp Button -->
+    <div class="fixed bottom-4 left-0 right-0 p-4">
+        <a href="https://wa.me/254742888111" class="block bg-green-600 text-white text-center py-4 rounded-xl font-bold text-lg shadow-lg">
+            Order via WhatsApp 📲
+        </a>
+    </div>
 
 </body>
 </html>
