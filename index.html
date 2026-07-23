@@ -22,11 +22,16 @@
             </button>
         </header>
 
+        <!-- STORE STATUS BANNER -->
+        <div id="store-status-banner" class="text-center text-sm py-2 px-4 font-medium transition-colors mb-6 rounded-lg">
+            <!-- Status dynamically injected by JavaScript -->
+        </div>
+
         <!-- MENU SECTION -->
         <div id="menu" class="space-y-4">
             <h2 class="text-2xl font-bold mb-6">Our Full Menu</h2>
             
-            <!-- Breakfast (Removed 'open' attribute) -->
+            <!-- Breakfast -->
             <details class="group bg-gray-50 rounded-lg p-4 transition-all">
                 <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-gray-800">
                     <span>Breakfast & Brunch</span>
@@ -68,7 +73,7 @@
                 </div>
             </details>
 
-            <!-- Specialty Drinks (Removed 'open' attribute) -->
+            <!-- Specialty Drinks -->
             <details class="group bg-gray-50 rounded-lg p-4 transition-all">
                 <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-gray-800">
                     <span>Specialty Drinks</span>
@@ -110,7 +115,7 @@
                 </div>
             </details>
 
-            <!-- Desserts (Removed 'open' attribute) -->
+            <!-- Desserts -->
             <details class="group bg-gray-50 rounded-lg p-4 transition-all">
                 <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-gray-800">
                     <span>Desserts</span>
@@ -157,7 +162,6 @@
         <div class="mt-12 border-t pt-8 text-center mb-6" id="location">
             <h3 class="font-bold text-lg mb-2">Visit Us</h3>
             <p class="text-gray-600 mb-4">Links Rd, Nyali, Mombasa</p>
-            
             <div>
                 <a href="https://maps.google.com/?cid=9350742906989027351" target="_blank" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">
                     Get Directions 📍
@@ -219,7 +223,7 @@
                     const itemTotal = price * qty;
 
                     grandTotal += itemTotal;
-                    orderList += `- ${qty}x ${name} (KSH ${itemTotal}%0A`;
+                    orderList += `- ${qty}x ${name} (KSH ${itemTotal})%0A`;
                 }
             });
 
@@ -235,6 +239,41 @@
             
             window.open(url, '_blank');
         }
+
+        function checkStoreStatus() {
+            const now = new Date();
+            const day = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+            const hour = now.getHours();
+            const minutes = now.getMinutes();
+            const currentTime = hour + minutes / 60;
+
+            const closingHours = {
+                0: 23, // Sunday: 8am - 11pm
+                1: 22, // Monday: 8am - 10pm
+                2: 22, // Tuesday: 8am - 10pm
+                3: 22, // Wednesday: 8am - 10pm
+                4: 22, // Thursday: 8am - 10pm
+                5: 23, // Friday: 8am - 11pm
+                6: 23  // Saturday: 8am - 11pm
+            };
+
+            const openingHour = 8;
+            const closingHour = closingHours[day];
+            const isOpen = currentTime >= openingHour && currentTime < closingHour;
+
+            const banner = document.getElementById('store-status-banner');
+            
+            if (isOpen) {
+                banner.className = "text-center text-sm py-2 px-4 font-medium bg-green-100 text-green-800 rounded-lg";
+                banner.innerHTML = "🟢 **Open Now** — Orders are live and streaming to WhatsApp!";
+            } else {
+                banner.className = "text-center text-sm py-2 px-4 font-medium bg-amber-100 text-amber-800 rounded-lg";
+                banner.innerHTML = "🔴 **Currently Closed** — You can still browse the menu, but orders open at 8:00 AM.";
+            }
+        }
+
+        // Run store check on page load
+        checkStoreStatus();
     </script>
 </body>
 </html>
