@@ -6,7 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Kikis Kremes Kafe | Nyali</title>
 </head>
-<body class="bg-gray-100 min-h-screen p-4 md:p-8">
+<body class="bg-gray-100 min-h-screen p-4 md:p-8 pb-32">
     <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-6">
         
         <!-- HERO SECTION -->
@@ -32,12 +32,40 @@
                     <span>Breakfast & Brunch</span>
                     <span class="transition group-open:rotate-180">▼</span>
                 </summary>
-                <ul class="mt-3 space-y-3 border-t border-gray-200 pt-3 text-gray-600">
-                    <li class="flex justify-between"><span>Classic Pancakes</span> <span class="font-semibold text-gray-900">KSH 450</span></li>
-                    <li class="flex justify-between"><span>Eggs Benedict</span> <span class="font-semibold text-gray-900">KSH 600</span></li>
-                    <li class="flex justify-between"><span>Full English Breakfast</span> <span class="font-semibold text-gray-900">KSH 850</span></li>
-                    <li class="flex justify-between"><span>Avocado Toast</span> <span class="font-semibold text-gray-900">KSH 550</span></li>
-                </ul>
+                <div class="mt-3 space-y-3 border-t border-gray-200 pt-3">
+                    <div class="menu-item flex justify-between items-center" data-name="Classic Pancakes" data-price="450">
+                        <span class="text-gray-600">Classic Pancakes <span class="block font-semibold text-gray-900 text-sm">KSH 450</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Eggs Benedict" data-price="600">
+                        <span class="text-gray-600">Eggs Benedict <span class="block font-semibold text-gray-900 text-sm">KSH 600</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Full English Breakfast" data-price="850">
+                        <span class="text-gray-600">Full English Breakfast <span class="block font-semibold text-gray-900 text-sm">KSH 850</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Avocado Toast" data-price="550">
+                        <span class="text-gray-600">Avocado Toast <span class="block font-semibold text-gray-900 text-sm">KSH 550</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                </div>
             </details>
 
             <!-- Specialty Drinks -->
@@ -46,12 +74,40 @@
                     <span>Specialty Drinks</span>
                     <span class="transition group-open:rotate-180">▼</span>
                 </summary>
-                <ul class="mt-3 space-y-3 border-t border-gray-200 pt-3 text-gray-600">
-                    <li class="flex justify-between"><span>Cappuccino</span> <span class="font-semibold text-gray-900">KSH 300</span></li>
-                    <li class="flex justify-between"><span>Iced Latte</span> <span class="font-semibold text-gray-900">KSH 350</span></li>
-                    <li class="flex justify-between"><span>Americano</span> <span class="font-semibold text-gray-900">KSH 250</span></li>
-                    <li class="flex justify-between"><span>Signature Smoothie</span> <span class="font-semibold text-gray-900">KSH 400</span></li>
-                </ul>
+                <div class="mt-3 space-y-3 border-t border-gray-200 pt-3">
+                    <div class="menu-item flex justify-between items-center" data-name="Cappuccino" data-price="300">
+                        <span class="text-gray-600">Cappuccino <span class="block font-semibold text-gray-900 text-sm">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Iced Latte" data-price="350">
+                        <span class="text-gray-600">Iced Latte <span class="block font-semibold text-gray-900 text-sm">KSH 350</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Americano" data-price="250">
+                        <span class="text-gray-600">Americano <span class="block font-semibold text-gray-900 text-sm">KSH 250</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Signature Smoothie" data-price="400">
+                        <span class="text-gray-600">Signature Smoothie <span class="block font-semibold text-gray-900 text-sm">KSH 400</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                </div>
             </details>
 
             <!-- Desserts -->
@@ -60,27 +116,125 @@
                     <span>Desserts</span>
                     <span class="transition group-open:rotate-180">▼</span>
                 </summary>
-                <ul class="mt-3 space-y-3 border-t border-gray-200 pt-3 text-gray-600">
-                    <li class="flex justify-between"><span>Chocolate Lava Cake</span> <span class="font-semibold text-gray-900">KSH 500</span></li>
-                    <li class="flex justify-between"><span>Cheesecake Slice</span> <span class="font-semibold text-gray-900">KSH 450</span></li>
-                    <li class="flex justify-between"><span>Artisanal Gelato</span> <span class="font-semibold text-gray-900">KSH 300</span></li>
-                    <li class="flex justify-between"><span>Brownie Sundae</span> <span class="font-semibold text-gray-900">KSH 400</span></li>
-                </ul>
+                <div class="mt-3 space-y-3 border-t border-gray-200 pt-3">
+                    <div class="menu-item flex justify-between items-center" data-name="Chocolate Lava Cake" data-price="500">
+                        <span class="text-gray-600">Chocolate Lava Cake <span class="block font-semibold text-gray-900 text-sm">KSH 500</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Cheesecake Slice" data-price="450">
+                        <span class="text-gray-600">Cheesecake Slice <span class="block font-semibold text-gray-900 text-sm">KSH 450</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Artisanal Gelato" data-price="300">
+                        <span class="text-gray-600">Artisanal Gelato <span class="block font-semibold text-gray-900 text-sm">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Brownie Sundae" data-price="400">
+                        <span class="text-gray-600">Brownie Sundae <span class="block font-semibold text-gray-900 text-sm">KSH 400</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-gray-200 rounded-full font-bold text-gray-700 flex items-center justify-center active:bg-gray-300">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-gray-800">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-amber-500 text-white rounded-full font-bold flex items-center justify-center active:bg-amber-600">+</button>
+                        </div>
+                    </div>
+                </div>
             </details>
         </div>
 
-       <!-- Location & Contact -->
-<div class="mt-12 border-t pt-8 text-center" id="location">
-    <h3 class="font-bold text-lg mb-2">Visit Us</h3>
-    <p class="text-gray-600 mb-4">Links Rd, Nyali, Mombasa</p>
-    
-    <div class="flex flex-col gap-3">
-        <!-- Corrected Directions Link -->
-        <a href="https://maps.google.com/?cid=9350742906989027351" target="_blank" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">
-            Get Directions 📍
-        </a>
-        <a href="https://wa.me/254742888111" class="block w-full bg-green-600 text-white py-3 rounded-lg font-bold hover:bg-green-700 transition">
-            Order via WhatsApp 📱
-        </a>
+        <!-- Location & Contact -->
+        <div class="mt-12 border-t pt-8 text-center mb-6" id="location">
+            <h3 class="font-bold text-lg mb-2">Visit Us</h3>
+            <p class="text-gray-600 mb-4">Links Rd, Nyali, Mombasa</p>
+            
+            <div>
+                <a href="https://maps.google.com/?cid=9350742906989027351" target="_blank" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition">
+                    Get Directions 📍
+                </a>
+            </div>
+        </div>
     </div>
-</div>
+
+    <!-- FIXED MOBILE ORDER & CHECKOUT BAR -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 shadow-xl z-50">
+        <div class="max-w-2xl mx-auto flex justify-between items-center">
+            <div>
+                <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold">Total Amount</p>
+                <p class="text-xl font-bold text-gray-900">KSH <span id="order-total">0</span></p>
+            </div>
+            <button onclick="sendWhatsAppOrder()" class="bg-green-600 text-white px-6 py-3 rounded-xl font-bold shadow-md hover:bg-green-700 transition flex items-center gap-2 cursor-pointer">
+                Order via WhatsApp 📱
+            </button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        function updateQty(button, change) {
+            const container = button.closest('.menu-item');
+            const qtySpan = container.querySelector('.item-qty');
+            let currentQty = parseInt(qtySpan.textContent);
+            
+            currentQty += change;
+            if (currentQty < 0) currentQty = 0;
+            
+            qtySpan.textContent = currentQty;
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const items = document.querySelectorAll('.menu-item');
+            let grandTotal = 0;
+
+            items.forEach(item => {
+                const qty = parseInt(item.querySelector('.item-qty').textContent);
+                const price = parseInt(item.getAttribute('data-price'));
+                grandTotal += qty * price;
+            });
+
+            document.getElementById('order-total').textContent = grandTotal;
+        }
+
+        function sendWhatsAppOrder() {
+            const items = document.querySelectorAll('.menu-item');
+            let orderList = "";
+            let grandTotal = 0;
+
+            items.forEach(item => {
+                const qty = parseInt(item.querySelector('.item-qty').textContent);
+                if (qty > 0) {
+                    const name = item.getAttribute('data-name');
+                    const price = parseInt(item.getAttribute('data-price'));
+                    const itemTotal = price * qty;
+
+                    grandTotal += itemTotal;
+                    orderList += `- ${qty}x ${name} (KSH ${itemTotal}%0A`;
+                }
+            });
+
+            if (grandTotal === 0) {
+                alert("Please select at least one item from the menu to order.");
+                return;
+            }
+
+            const message = `Hello Kikis Kremes Kafe, I would like to place an order:%0A%0A${orderList}%0ATotal: KSH ${grandTotal}%0A%0APayment Method: M-Pesa Till Number [Insert Till Number Here]`;
+            
+            const phoneNo = "254742888111"; 
+            const url = `https://wa.me/${phoneNo}?text=${message}`;
+            
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
