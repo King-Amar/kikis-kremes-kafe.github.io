@@ -3,200 +3,319 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiki's Creams Café - Full Menu</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            overflow: hidden;
-        }
-
-        /* 9:16 TikTok Container */
-        .tiktok-container {
-            width: 405px;
-            height: 720px;
-            background: linear-gradient(135deg, #2c221e 0%, #1a1412 100%);
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            overflow: hidden;
-            border: 1px solid #3d2f2b;
-            padding: 16px;
-        }
-
-        /* Subtle Café Background Glow */
-        .tiktok-container::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(193, 154, 107, 0.15) 0%, rgba(0,0,0,0) 70%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-        }
-
-        /* Main Content Card */
-        .content-card {
-            width: 100%;
-            height: 100%;
-            background: #d4c5b9; /* Pale Beige */
-            border-radius: 14px;
-            padding: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            position: relative;
-            z-index: 2;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-            border: 1px solid #b8a696;
-        }
-
-        /* Header / Title */
-        .card-header {
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: #4a3027; /* Chocolate Brown */
-            text-transform: uppercase;
-            text-align: center;
-            border-bottom: 2px solid #b8a696;
-            padding-bottom: 5px;
-            flex-shrink: 0;
-        }
-
-        /* Scrollable Items List */
-        .item-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            overflow-y: auto;
-            flex-grow: 1;
-            padding-right: 4px;
-        }
-
-        /* Custom Scrollbar for Café Vibe */
-        .item-list::-webkit-scrollbar {
-            width: 5px;
-        }
-        .item-list::-webkit-scrollbar-track {
-            background: #d4c5b9;
-        }
-        .item-list::-webkit-scrollbar-thumb {
-            background: #b8a696;
-            border-radius: 3px;
-        }
-
-        .category-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: #4a3027;
-            text-transform: uppercase;
-            margin-top: 6px;
-            border-bottom: 1px dashed #b8a696;
-            padding-bottom: 2px;
-        }
-
-        .item-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #e6dbd0;
-            padding: 6px 10px;
-            border-radius: 5px;
-            border: 1px solid #c9b9ab;
-        }
-
-        .item-name {
-            font-size: 10.5px;
-            font-weight: 600;
-            color: #4a3027; /* Chocolate Brown */
-            text-transform: uppercase;
-        }
-
-        .item-price {
-            font-size: 10.5px;
-            font-weight: 700;
-            color: #4a3027;
-        }
-
-        /* Footer */
-        .card-footer {
-            margin-top: 2px;
-            background: #4a3027; /* Chocolate Brown Container */
-            padding: 7px;
-            border-radius: 5px;
-            text-align: center;
-            color: #d4c5b9; /* Pale Beige text */
-            font-size: 9.5px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            flex-shrink: 0;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Kikis Kremes Kafe | Nyali</title>
 </head>
-<body>
+<body class="bg-[#2c221e] text-[#d4c5b9] min-h-screen p-4 md:p-8 pb-36">
+    <div class="max-w-2xl mx-auto bg-[#1a1412] border border-[#3d2f2b] rounded-2xl shadow-2xl p-6 md:p-8">
+        
+        <!-- HERO SECTION -->
+        <header class="text-left mb-8 border-b border-[#3d2f2b] pb-8">
+            <span class="text-[#c19a6b] font-bold uppercase tracking-widest text-xs">Nyali's Premier Destination</span>
+            <h1 class="text-3xl md:text-4xl font-black text-[#f5ebd9] mt-2 mb-3">Kikis Kremes Kafe</h1>
+            <p class="text-[#b8a696] text-sm md:text-base mb-6 leading-relaxed">Experience the ultimate café ambience, artisan coffee, rich patisserie, and exquisite dining right in the heart of Mombasa.</p>
+            <button 
+                onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});" 
+                class="bg-[#c19a6b] text-[#1a1412] px-6 py-3 rounded-xl font-bold hover:bg-[#b0885c] transition cursor-pointer shadow-lg shadow-[#c19a6b]/10"
+            >
+                Explore Full Menu 🍽️
+            </button>
+        </header>
 
-    <div class="tiktok-container">
-        <div class="content-card">
-            <div class="card-header">Kiki's Creams Full Menu</div>
+        <!-- STORE STATUS BANNER -->
+        <div id="store-status-banner" class="text-center text-sm py-3 px-4 font-medium transition-colors mb-8 rounded-xl border border-[#3d2f2b] bg-[#2c221e]/60 text-[#d4c5b9]">
+            <!-- Status dynamically injected by JavaScript -->
+        </div>
 
-            <div class="item-list">
-                <!-- Starters -->
-                <div class="category-title">Starters & Soups</div>
-                <div class="item-row"><span class="item-name">Cream of Chicken Soup</span><span class="item-price">KES 450</span></div>
-                <div class="item-row"><span class="item-name">Crispy Calamari</span><span class="item-price">KES 750</span></div>
-                <div class="item-row"><span class="item-name">Garlic Butter Wings</span><span class="item-price">KES 650</span></div>
+        <!-- MENU SECTION -->
+        <div id="menu" class="space-y-4">
+            <h2 class="text-2xl font-black text-[#f5ebd9] mb-6 flex items-center justify-between">
+                <span>Digital Menu</span>
+                <span class="text-xs font-normal text-[#c19a6b] bg-[#c19a6b]/10 px-3 py-1 rounded-full border border-[#c19a6b]/20">Tap item to add</span>
+            </h2>
+           
+            <!-- Starters -->
+            <details class="group bg-[#2c221e]/60 border border-[#3d2f2b] rounded-xl p-4 transition-all">
+                <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-[#c19a6b] hover:text-[#d4af37]">
+                    <span>Starters</span>
+                    <span class="transition group-open:rotate-180 text-sm">▼</span>
+                </summary>
+                <div class="mt-4 space-y-3 border-t border-[#3d2f2b] pt-4">
+                    <div class="menu-item flex justify-between items-center" data-name="Bajia (V)" data-price="150">
+                        <span class="text-[#d4c5b9] text-sm">Bajia (V) <span class="block font-semibold text-[#c19a6b] text-xs">KSH 150</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Viazi (V)" data-price="150">
+                        <span class="text-[#d4c5b9] text-sm">Viazi (V) <span class="block font-semibold text-[#c19a6b] text-xs">KSH 150</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Samousa Beef" data-price="300">
+                        <span class="text-[#d4c5b9] text-sm">Samousa Beef <span class="block font-semibold text-[#c19a6b] text-xs">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Kebabs" data-price="300">
+                        <span class="text-[#d4c5b9] text-sm">Kebabs <span class="block font-semibold text-[#c19a6b] text-xs">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Wings 5pcs (BBQ, Peri Peri, Honey)" data-price="500">
+                        <span class="text-[#d4c5b9] text-sm">Wings 5pcs <span class="block text-xs text-[#b8a696]">BBQ, Peri Peri, Honey</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 500</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-                <!-- Breakfast -->
-                <div class="category-title">Breakfast</div>
-                <div class="item-row"><span class="item-name">English Breakfast</span><span class="item-price">KES 950</span></div>
-                <div class="item-row"><span class="item-name">Avocado Toast & Egg</span><span class="item-price">KES 600</span></div>
+            <!-- Soups -->
+            <details class="group bg-[#2c221e]/60 border border-[#3d2f2b] rounded-xl p-4 transition-all">
+                <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-[#c19a6b] hover:text-[#d4af37]">
+                    <span>Soups</span>
+                    <span class="transition group-open:rotate-180 text-sm">▼</span>
+                </summary>
+                <div class="mt-4 space-y-3 border-t border-[#3d2f2b] pt-4">
+                    <div class="menu-item flex justify-between items-center" data-name="Tomato Soup (V)" data-price="500">
+                        <span class="text-[#d4c5b9] text-sm">Tomato Soup (V) <span class="block font-semibold text-[#c19a6b] text-xs">KSH 500</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Creamy Mushroom (V)" data-price="500">
+                        <span class="text-[#d4c5b9] text-sm">Creamy Mushroom (V) <span class="block font-semibold text-[#c19a6b] text-xs">KSH 500</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Chicken Soup" data-price="500">
+                        <span class="text-[#d4c5b9] text-sm">Chicken Soup <span class="block font-semibold text-[#c19a6b] text-xs">KSH 500</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Mandi Soup" data-price="300">
+                        <span class="text-[#d4c5b9] text-sm">Mandi Soup <span class="block font-semibold text-[#c19a6b] text-xs">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-                <!-- Mains (Rice, Curry, Pasta, Pizza) -->
-                <div class="category-title">Mains & Pasta</div>
-                <div class="item-row"><span class="item-name">Swahili Coconut Fish Curry</span><span class="item-price">KES 1,200</span></div>
-                <div class="item-row"><span class="item-name">Creamy Chicken Alfredo</span><span class="item-price">KES 1,100</span></div>
-                <div class="item-row"><span class="item-name">Margherita Pizza</span><span class="item-price">KES 900</span></div>
-                <div class="item-row"><span class="item-name">BBQ Chicken Pizza</span><span class="item-price">KES 1,150</span></div>
+            <!-- Salads -->
+            <details class="group bg-[#2c221e]/60 border border-[#3d2f2b] rounded-xl p-4 transition-all">
+                <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-[#c19a6b] hover:text-[#d4af37]">
+                    <span>Salads</span>
+                    <span class="transition group-open:rotate-180 text-sm">▼</span>
+                </summary>
+                <div class="mt-4 space-y-3 border-t border-[#3d2f2b] pt-4">
+                    <div class="menu-item flex justify-between items-center" data-name="Chicken Caesar Salad" data-price="700">
+                        <span class="text-[#d4c5b9] text-sm">Chicken Caesar Salad <span class="block text-xs text-[#b8a696]">Grilled chicken, lettuce, Caesar dressing, Parmesan</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 700</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Greek Salad" data-price="650">
+                        <span class="text-[#d4c5b9] text-sm">Greek Salad <span class="block text-xs text-[#b8a696]">Fresh tomatoes, cucumbers, olives & feta in Greek dressing</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 650</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Tuna Pasta Salad" data-price="650">
+                        <span class="text-[#d4c5b9] text-sm">Tuna Pasta Salad <span class="block text-xs text-[#b8a696]">Pasta mixed with tuna, sweetcorn, onions, peppers, cucumbers</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 650</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Crunchy Potato Salad" data-price="550">
+                        <span class="text-[#d4c5b9] text-sm">Crunchy Potato Salad <span class="block text-xs text-[#b8a696]">Creamy potato salad with rich herb dressing</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 550</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-                <!-- Burgers & Grills -->
-                <div class="category-title">Burgers & Grills</div>
-                <div class="item-row"><span class="item-name">Classic Beef Burger</span><span class="item-price">KES 950</span></div>
-                <div class="item-row"><span class="item-name">Grilled Steak Chops</span><span class="item-price">KES 1,400</span></div>
+            <!-- Patisserie -->
+            <details class="group bg-[#2c221e]/60 border border-[#3d2f2b] rounded-xl p-4 transition-all">
+                <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-[#c19a6b] hover:text-[#d4af37]">
+                    <span>Patisserie</span>
+                    <span class="transition group-open:rotate-180 text-sm">▼</span>
+                </summary>
+                <div class="mt-4 space-y-3 border-t border-[#3d2f2b] pt-4">
+                    <div class="menu-item flex justify-between items-center" data-name="Plain Croissant" data-price="300">
+                        <span class="text-[#d4c5b9] text-sm">Plain Croissant <span class="block font-semibold text-[#c19a6b] text-xs">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Chocolate Croissant" data-price="350">
+                        <span class="text-[#d4c5b9] text-sm">Chocolate Croissant <span class="block font-semibold text-[#c19a6b] text-xs">KSH 350</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Almond Croissant" data-price="350">
+                        <span class="text-[#d4c5b9] text-sm">Almond Croissant <span class="block font-semibold text-[#c19a6b] text-xs">KSH 350</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Vegetable Pie (V)" data-price="300">
+                        <span class="text-[#d4c5b9] text-sm">Vegetable Pie (V) <span class="block font-semibold text-[#c19a6b] text-xs">KSH 300</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Meat Pie" data-price="350">
+                        <span class="text-[#d4c5b9] text-sm">Meat Pie <span class="block font-semibold text-[#c19a6b] text-xs">KSH 350</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Chicken Pie" data-price="350">
+                        <span class="text-[#d4c5b9] text-sm">Chicken Pie <span class="block font-semibold text-[#c19a6b] text-xs">KSH 350</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Icecroist" data-price="600">
+                        <span class="text-[#d4c5b9] text-sm">Icecroist <span class="block font-semibold text-[#c19a6b] text-xs">KSH 600</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Kunaissant" data-price="800">
+                        <span class="text-[#d4c5b9] text-sm">Kunaissant <span class="block font-semibold text-[#c19a6b] text-xs">KSH 800</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                </div>
+            </details>
 
-                <!-- Patisserie & Desserts -->
-                <div class="category-title">Patisserie & Desserts</div>
-                <div class="item-row"><span class="item-name">Belgian Waffles</span><span class="item-price">KES 700</span></div>
-                <div class="item-row"><span class="item-name">Signature Crepes</span><span class="item-price">KES 650</span></div>
-                <div class="item-row"><span class="item-name">Hot Cookie Dough</span><span class="item-price">KES 750</span></div>
-                <div class="item-row"><span class="item-name">New York Cheesecake</span><span class="item-price">KES 600</span></div>
-
-                <!-- Coffee & Drinks -->
-                <div class="category-title">Coffee & Beverages</div>
-                <div class="item-row"><span class="item-name">Caramel Macchiato</span><span class="item-price">KES 400</span></div>
-                <div class="item-row"><span class="item-name">Gourmet Milkshake</span><span class="item-price">KES 550</span></div>
-                <div class="item-row"><span class="item-name">Fresh Passion Mint Juice</span><span class="item-price">KES 350</span></div>
-            </div>
-
-            <div class="card-footer">Nyali Branch • Tap to Order</div>
+            <!-- Breakfast -->
+            <details class="group bg-[#2c221e]/60 border border-[#3d2f2b] rounded-xl p-4 transition-all">
+                <summary class="flex justify-between items-center font-bold cursor-pointer list-none text-lg text-[#c19a6b] hover:text-[#d4af37]">
+                    <span>Breakfast</span>
+                    <span class="transition group-open:rotate-180 text-sm">▼</span>
+                </summary>
+                <div class="mt-4 space-y-3 border-t border-[#3d2f2b] pt-4">
+                    <div class="menu-item flex justify-between items-center" data-name="English Breakfast" data-price="1000">
+                        <span class="text-[#d4c5b9] text-sm">English Breakfast <span class="block text-xs text-[#b8a696]">3 eggs, 2 sausages, 2 hash browns, baked beans, mushrooms, macon and toast. Tea/coffee or juice</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 1,000</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Shakshuka" data-price="600">
+                        <span class="text-[#d4c5b9] text-sm">Shakshuka <span class="block text-xs text-[#b8a696]">Eggs poached in tomato, olive oil, peppers sauce with toast</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 600</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Eggstravaganza" data-price="600">
+                        <span class="text-[#d4c5b9] text-sm">Eggstravaganza <span class="block text-xs text-[#b8a696]">Buttery croissant stuffed with scrambled/fried eggs, mushrooms, cheese</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 600</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Beans On Toast" data-price="500">
+                        <span class="text-[#d4c5b9] text-sm">Beans On Toast <span class="block text-xs text-[#b8a696]">Baked beans layered with warm buttery toast topped with melted cheese</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 500</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Avotoast" data-price="550">
+                        <span class="text-[#d4c5b9] text-sm">Avotoast <span class="block text-xs text-[#b8a696]">Avocado on toast & eggs</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 550</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="French Toast" data-price="550">
+                        <span class="text-[#d4c5b9] text-sm">French Toast <span class="block text-xs text-[#b8a696]">Fluffy bread slices in creamy egg mix, powdered sugar, maple syrup & fruits</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 550</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Club Macon Sandwich" data-price="700">
+                        <span class="text-[#d4c5b9] text-sm">Club Macon Sandwich <span class="block text-xs text-[#b8a696]">Toast layered with eggs, macon, salad and chips</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 700</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                    <div class="menu-item flex justify-between items-center" data-name="Spanish Omelette" data-price="600">
+                        <span class="text-[#d4c5b9] text-sm">Spanish Omelette <span class="block text-xs text-[#b8a696]">Eggs with potatoes, onions, tomatoes, peppers, cheese, toast. Tea/coffee/juice</span> <span class="block font-semibold text-[#c19a6b] text-xs">KSH 600</span></span>
+                        <div class="flex items-center space-x-2">
+                            <button type="button" onclick="updateQty(this, -1)" class="w-8 h-8 bg-[#3d2f2b] text-[#d4c5b9] rounded-full font-bold flex items-center justify-center active:bg-[#4a3a35]">-</button>
+                            <span class="item-qty w-6 text-center font-semibold text-[#f5ebd9]">0</span>
+                            <button type="button" onclick="updateQty(this, 1)" class="w-8 h-8 bg-[#c19a6b] text-[#1a1412] rounded-full font-bold flex items-center justify-center active:bg-[#b0885c]">+</button>
+                        </div>
+                    </div>
+                </div>
+            </details>
         </div>
     </div>
-
 </body>
 </html>
