@@ -14,12 +14,22 @@
             <span class="text-[#c19a6b] font-bold uppercase tracking-widest text-xs">Nyali's Premier Destination</span>
             <h1 class="text-3xl md:text-4xl font-black text-[#f5ebd9] mt-2 mb-3">Kikis Kremes Kafe</h1>
             <p class="text-[#b8a696] text-sm md:text-base mb-6 leading-relaxed">Experience the ultimate café ambience, artisan coffee, rich patisserie, and exquisite dining right in the heart of Mombasa.</p>
-            <button 
-                onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});" 
-                class="bg-[#c19a6b] text-[#1a1412] px-6 py-3 rounded-xl font-bold hover:bg-[#b0885c] transition cursor-pointer shadow-lg shadow-[#c19a6b]/10"
-            >
-                Explore Full Menu 🍽️
-            </button>
+            <div class="flex flex-wrap gap-3">
+                <button 
+                    onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'});" 
+                    class="bg-[#c19a6b] text-[#1a1412] px-6 py-3 rounded-xl font-bold hover:bg-[#b0885c] transition cursor-pointer shadow-lg shadow-[#c19a6b]/10"
+                >
+                    Explore Full Menu 🍽️
+                </button>
+                <a 
+                    href="https://maps.google.com/?q=Kikis+Kremes+Kafe+Nyali+Mombasa" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    class="bg-[#2c221e] border border-[#3d2f2b] text-[#d4c5b9] px-5 py-3 rounded-xl font-bold hover:bg-[#3d2f2b] transition flex items-center gap-2 text-sm"
+                >
+                    📍 Open Google Maps
+                </a>
+            </div>
         </header>
 
         <!-- STORE STATUS BANNER -->
@@ -317,5 +327,170 @@
             </details>
         </div>
     </div>
+
+    <!-- STICKY CART BAR -->
+    <div id="cart-bar" class="fixed bottom-0 left-0 right-0 bg-[#1a1412] border-t border-[#3d2f2b] p-4 shadow-2xl transition-transform duration-300 translate-y-full z-50">
+        <div class="max-w-2xl mx-auto flex items-center justify-between">
+            <div>
+                <p class="text-xs text-[#b8a696]" id="cart-count">0 items selected</p>
+                <p class="text-lg font-black text-[#f5ebd9]" id="cart-total">KSH 0</p>
+            </div>
+            <button onclick="openCheckout()" class="bg-[#c19a6b] text-[#1a1412] px-6 py-3 rounded-xl font-bold hover:bg-[#b0885c] transition cursor-pointer shadow-lg">
+                Review Order 📱
+            </button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 z-50">
+        <div class="bg-[#1a1412] border border-[#3d2f2b] rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl">
+            <h3 class="text-xl font-black text-[#f5ebd9]">Complete Your Order</h3>
+            <div id="modal-items-summary" class="max-h-40 overflow-y-auto space-y-2 text-sm text-[#d4c5b9] border-y border-[#3d2f2b] py-3">
+                <!-- Summary items injected here -->
+            </div>
+            <div class="space-y-3">
+                <div>
+                    <label class="block text-xs font-bold text-[#b8a696] uppercase mb-1">Your Name</label>
+                    <input type="text" id="customer-name" placeholder="Enter your name" class="w-full bg-[#2c221e] border border-[#3d2f2b] rounded-xl px-4 py-2.5 text-[#f5ebd9] text-sm focus:outline-none focus:border-[#c19a6b]">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-[#b8a696] uppercase mb-1">Table Number or Delivery Address</label>
+                    <input type="text" id="customer-location" placeholder="e.g. Table 4 or Nyali Road" class="w-full bg-[#2c221e] border border-[#3d2f2b] rounded-xl px-4 py-2.5 text-[#f5ebd9] text-sm focus:outline-none focus:border-[#c19a6b]">
+                </div>
+            </div>
+            <div class="flex space-x-3 pt-2">
+                <button onclick="closeCheckout()" class="flex-1 bg-[#2c221e] text-[#d4c5b9] py-3 rounded-xl font-bold border border-[#3d2f2b] hover:bg-[#3d2f2b] transition cursor-pointer">Cancel</button>
+                <button onclick="sendWhatsAppOrder()" class="flex-1 bg-emerald-600 text-white py-3 rounded-xl font-bold hover:bg-emerald-500 transition cursor-pointer shadow-lg">Send to WhatsApp 💬</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORE_PHONE = "254700000000"; // Replace with actual WhatsApp number
+
+        function updateQty(btn, change) {
+            const container = btn.closest('.menu-item');
+            const qtySpan = container.querySelector('.item-qty');
+            let qty = parseInt(qtySpan.textContent) + change;
+            if (qty < 0) qty = 0;
+            qtySpan.textContent = qty;
+            updateCart();
+        }
+
+        function updateCart() {
+            const items = document.querySelectorAll('.menu-item');
+            let totalCount = 0;
+            let totalPrice = 0;
+
+            items.forEach(item => {
+                const qty = parseInt(item.querySelector('.item-qty').textContent);
+                const price = parseInt(item.getAttribute('data-price'));
+                totalCount += qty;
+                totalPrice += qty * price;
+            });
+
+            const cartBar = document.getElementById('cart-bar');
+            document.getElementById('cart-count').textContent = `${totalCount} item${totalCount === 1 ? '' : 's'} selected`;
+            document.getElementById('cart-total').textContent = `KSH ${totalPrice.toLocaleString()}`;
+
+            if (totalCount > 0) {
+                cartBar.classList.remove('translate-y-full');
+            } else {
+                cartBar.classList.add('translate-y-full');
+            }
+        }
+
+        function openCheckout() {
+            const summaryDiv = document.getElementById('modal-items-summary');
+            summaryDiv.innerHTML = '';
+            
+            const items = document.querySelectorAll('.menu-item');
+            let hasItems = false;
+            let totalPrice = 0;
+
+            items.forEach(item => {
+                const qty = parseInt(item.querySelector('.item-qty').textContent);
+                if (qty > 0) {
+                    hasItems = true;
+                    const name = item.getAttribute('data-name');
+                    const price = parseInt(item.getAttribute('data-price'));
+                    const subtotal = qty * price;
+                    totalPrice += subtotal;
+
+                    const row = document.createElement('div');
+                    row.className = 'flex justify-between items-center text-sm';
+                    row.innerHTML = `<span>${qty}x ${name}</span><span class="font-bold text-[#c19a6b]">KSH ${subtotal.toLocaleString()}</span>`;
+                    summaryDiv.appendChild(row);
+                }
+            });
+
+            if (!hasItems) return;
+
+            const totalRow = document.createElement('div');
+            totalRow.className = 'flex justify-between items-center font-black text-base text-[#f5ebd9] border-t border-[#3d2f2b] pt-2 mt-2';
+            totalRow.innerHTML = `<span>Total Payment</span><span class="text-[#c19a6b]">KSH ${totalPrice.toLocaleString()}</span>`;
+            summaryDiv.appendChild(totalRow);
+
+            document.getElementById('checkout-modal').classList.remove('hidden');
+            document.getElementById('checkout-modal').classList.add('flex');
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkout-modal').classList.remove('flex');
+            document.getElementById('checkout-modal').classList.add('hidden');
+        }
+
+        function sendWhatsAppOrder() {
+            const name = document.getElementById('customer-name').value.trim();
+            const location = document.getElementById('customer-location').value.trim();
+
+            if (!name || !location) {
+                alert('Please enter your name and table number or delivery address.');
+                return;
+            }
+
+            let message = `*New Order - Kikis Kremes Kafe*%0A`;
+            message += `*Customer:* ${name}%0A`;
+            message += `*Table/Address:* ${location}%0A%0A`;
+            message += `*Order Details:*%0A`;
+
+            let totalPrice = 0;
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => {
+                const qty = parseInt(item.querySelector('.item-qty').textContent);
+                if (qty > 0) {
+                    const itemName = item.getAttribute('data-name');
+                    const price = parseInt(item.getAttribute('data-price'));
+                    const subtotal = qty * price;
+                    totalPrice += subtotal;
+                    message += `- ${qty}x ${itemName} (KSH ${subtotal.toLocaleString()})%0A`;
+                }
+            });
+
+            message += `%0A*Total Amount:* KSH ${totalPrice.toLocaleString()}`;
+
+            const url = `https://wa.me/${STORE_PHONE}?text=${message}`;
+            window.open(url, '_blank');
+        }
+
+        // Store Open/Closed Status Checker
+        function checkStoreStatus() {
+            const banner = document.getElementById('store-status-banner');
+            const now = new Date();
+            const hour = now.getHours();
+            
+            // Open 7:00 AM to 10:00 PM (07:00 - 22:00)
+            const isOpen = hour >= 7 && hour < 22;
+
+            if (isOpen) {
+                banner.className = "text-center text-sm py-3 px-4 font-medium transition-colors mb-8 rounded-xl border border-emerald-900/50 bg-emerald-950/40 text-emerald-400";
+                banner.innerHTML = "🟢 Kafe is Open • Accepting Orders";
+            } else {
+                banner.className = "text-center text-sm py-3 px-4 font-medium transition-colors mb-8 rounded-xl border border-rose-900/50 bg-rose-950/40 text-rose-400";
+                banner.innerHTML = "🔴 Kafe is Currently Closed • Opens Daily at 7:00 AM";
+            }
+        }
+        checkStoreStatus();
+    </script>
 </body>
 </html>
